@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error 404</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: url('a.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .error-container {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      max-height: 400px;
+      min-width: 500px;
+      min-height: 350px;
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .browser-header {
+      display: flex;
+      align-items: center;
+      background-color: #000;
+      color: white;
+      padding: 10px;
+      border-bottom: 2px solid black;
+    }
+
+    .browser-header .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+
+    .browser-header .dot.red {
+      background-color: red;
+    }
+
+    .browser-header .dot.yellow {
+      background-color: yellow;
+    }
+
+    .browser-header .dot.green {
+      background-color: green;
+    }
+
+    .browser-header .title {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .error-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .error-code {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .error-message {
+      font-size: 14px;
+      margin: 10px 0 20px 0;
+    }
+
+    .cats {
+      position: relative;
+    }
+
+    .cat {
+      position: absolute;
+      max-width: 100px;
+    }
+
+    .cat-top-left {
+      top: -60px;
+      left: -20px;
+    }
+
+    .cat-top-right {
+      top: -20px;
+      right: -20px;
+    }
+
+    .cat-bottom {
+      bottom: -150px;
+      right: 40%;
+      max-width: 100px;
+    }
+
+    .cat-bottom::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      width: 4px;
+      height: 8px;
+      background: lightblue;
+      border-radius: 2px;
+      animation: teardrop 1.5s infinite;
+    }
+
+    @keyframes teardrop {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .error-container {
+        width: 90%;
+        max-width: 600px;
+        min-width: 400px;
+        height: auto;
+        min-height: 350px;
+      }
+
+      .error-code {
+        font-size: 20px;
+      }
+
+      .error-message {
+        font-size: 12px;
+      }
+
+      .cat {
+        max-width: 80px;
+      }
+
+      .cat-bottom {
+        bottom: -100px;
+        right: 30%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .browser-header .title {
+        font-size: 12px;
+      }
+
+      .error-code {
+        font-size: 18px;
+      }
+
+      .error-message {
+        font-size: 10px;
+      }
+
+      .cat {
+        max-width: 81px;
+      }
+
+      .cat-bottom {
+        bottom: -80px;
+        right: 20%;
+      }
+    }
+
+    .home-button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #3A6D8C;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .home-button:hover {
+      background-color: #2a4f66;
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .home-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="browser-header">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="title">ERROR</span>
+    </div>
+    <div class="error-content">
+      <p class="error-code">ERROR 404</p>
+      <p class="error-message">Page Not Found</p>
+      <div class="cats">
+        <img src="https://i.etsystatic.com/44628417/r/il/73f268/5020456566/il_794xN.5020456566_7elh.jpg" alt="Cat 1" class="cat cat-top-left">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvArOZqux60ZWqOeXsIU2c9N38AndHyRBa4w&s" alt="Cat 2" class="cat cat-top-right">
+        <img src="462576442_562905886483461_2539880528059202554_n.png" alt="Cat 3" class="cat cat-bottom">
+      </div>
+      <a href="index.html" class="home-button">Return to Home</a>
+    </div>
+  </div>
+</body>
+</html>
