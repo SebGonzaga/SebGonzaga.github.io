@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -391,4 +392,503 @@ html {
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Merienda&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cinzel', serif;
+    }
+
+    body {
+      transition: background-color 0.5s ease, color 0.5s ease;
+      overflow-x: hidden;
+    }
+
+    body.light {
+      background-color: #FFFECB;
+      color: #021526;
+    }
+
+    body.dark {
+      background-color: #021526;
+      color: #EAD8B1;
+    }
+
+    .intro {
+      position: relative;
+      height: 100vh;
+      background: url('genshin-day-scenery.jpg') no-repeat center center;
+      background-size: cover;
+      text-align: center;
+      padding-top: 20vh;
+      color: #EAD8B1;
+      transition: background-image 0.5s ease;
+    }
+
+    .intro h1, .intro h2 {
+      transition: color 0.5s ease;
+    }
+
+    body.light .intro h1, body.light .intro h2 {
+      color: #021526;
+    }
+
+    body.dark .intro h1, body.dark .intro h2 {
+      color: #EAD8B1;
+    }
+
+    .curtain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      transition: transform 1s ease;
+      z-index: 0;
+    }
+
+    .curtain.open {
+      transform: translateY(-100%);
+    }
+
+    h1.name {
+      font-size: 3rem;
+      font-family: 'Merienda', sans-serif;
+      z-index: 1;
+    }
+
+    h2.title {
+      font-size: 2rem;
+      z-index: 1;
+    }
+
+    .about {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .profile-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .profile-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+
+    .info {
+      margin-left: 20px;
+      font-size: 1.2rem;
+    }
+
+    .projects {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .project-card {
+      display: inline-block;
+      margin: 20px;
+      width: 250px;
+      background-color: #F0E6D2;
+      border: 2px solid #C2B280;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: #021526;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .project-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      background-color: #E2D6B5;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .project-card h3 {
+      margin-top: 10px;
+      font-size: 1.5rem;
+      font-family: 'Merienda', sans-serif;
+    }
+
+    .project-card p {
+      font-size: 1rem;
+      margin: 5px 0;
+    }
+
+    body.dark .project-card {
+      background-color: #3A3A3A;
+      color: #EAD 8B1;
+    }
+
+    .contact {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .contact-map {
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .region {
+      margin: 10px;
+      display: inline-block;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .region:hover {
+      color: #EAD8B1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .toggle-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 30px;
+      background-color: #F5F4B3;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      z-index: 2;
+    }
+
+    .toggle-button:hover {
+      background-color: #EAD8B1;
+    }
+
+    .toggle-button i {
+      font-size: 1.2rem;
+      color: #021526;
+      transition: opacity 0.3s;
+    }
+
+    body.dark .toggle-button i {
+      color: #021526;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      padding-top: 50px;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .carousel-item h3, .carousel-item p {
+      margin-top: 10px;
+      transition: color 0.5s ease;
+    }
+
+    body.light .carousel-item h3,
+    body.light .carousel-item p {
+      color: #021526;
+    }
+
+    body.dark .carousel-item h3,
+    body.dark .carousel-item p {
+      color: #EAD8B1;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      z-index: 100;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 10px;
+      cursor: pointer;
+      transform: translateY(-50%);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .open-project {
+      background-color: #F5F4B3;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .open-project:hover {
+      background-color: #EAD8B1;
+    }
+
+    .image-container {
+      width: 150px;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="light">
+  <div class="toggle-button" onclick="toggleMode()">
+    <i class="fas fa-sun" id="sun-icon"></i>
+    <i class="fas fa-moon" id="moon-icon" style="display: none;"></i>
+  </div>
+
+  <div class="intro">
+    <div class="curtain" id="curtain"></div>
+    <h1 class="name">Sebastian Gonzaga</h1>
+    <h2 class="title">Welcome to My Portfolio</h2>
+
+    <section class="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <div class="image-container">
+                        <img src="https://media0.giphy.com/media/w1eatlCL6TSFnt7jjU/giphy.gif?cid=6c09b9526z0f2si9oxri080ogrvsqtuiqfxl2e4jhr3d0uoz&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Project 1">
+                    </div>
+                    <h3>Nature Trip</h3>
+                    <p>Explore the beautiful landscapes across the Globe</p>
+                    <button class="open-project" onclick="openProject('Project1.html')">Open Project</button>
+                </div>
+                <div class="carousel-item">
+                    <div class="image-container">
+                    <img src="https://media.tenor.com/7grBFZJazOMAAAAM/minecraft-block.gif" alt="Project 2">
+                </div>
+                    <h3>Minecraft API</h3>
+                    <p>So many blocks to choose</p>
+                    <button class="open-project" onclick="openProject('Project2.html')">Open Project</button>
+                </div>
+                <div class="carousel-item">
+                    <div class="image-container">
+                    <img src="https://media2.giphy.com/media/3oKHWvON3jhmmf38s0/200.gif?cid=6c09b952dqt825smu8wa6zdbfylga5qgi89339v8d7gn07gr&ep=v1_gifs_search&rid=200.gif&ct=g" alt="Project 3">
+                </div>
+                    <h3>Project Title 3</h3>
+                    <p>Short description of the project.</p>
+                    <button class="open-project" onclick="openProject('https://link-to-your-project3.com')">Open Project</button>
+                </div>
+                <div class="carousel-item">
+                    <div class="image-container">
+                        <img src="https://media2.giphy.com/media/3oKHWvON3jhmmf38s0/200.gif?cid=6c09b952dqt825smu8wa6zdbfylga5qgi89339v8d7gn07gr&ep=v1_gifs_search&rid=200.gif&ct=g" alt="Project 4">
+                    </div>
+                    <h3>Project Title 4</h3>
+                    <p>Short description of the project.</p>
+                    <button class="open-project" onclick="openProject('https://link-to-your-project4.com')">Open Project</button>
+                </div>
+                <div class="carousel-item">
+                    <div class="image-container">
+                        <img src="https://media2.giphy.com/media/3oKHWvON3jhmmf38s0/200.gif?cid=6c09b952dqt825smu8wa6zdbfylga5qgi89339v8d7gn07gr&ep=v1_gifs_search&rid=200.gif&ct=g" alt="Project 5">
+                    </div>
+                    <h3>Project Title 5</h3>
+                    <p>Short description of the project.</p>
+                    <button class="open-project" onclick="openProject('https://link-to-your-project5.com')">Open Project</button>
+                </div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+   
+    <script>
+        function openProject(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+  </div>
+
+  <section class="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="profile-card">
+      <img src="462558939_603583955857792_8774226164152501530_n.jpg" alt="Profile Picture">
+      <div class="info">
+        <h3>Sebastian Gonzaga</h3>
+        <p><strong>Vision:</strong> Web Development</p>
+        <p><strong>Weapon:</strong> Keyboard and Mouse</p>
+        <p><strong>Motto:</strong> "Life is simple, don't make it hard."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class ="contact-map">
+      <p>Click on a region to contact me</p>
+      <div class="regions">
+        <a href="mailto:sebastiangonzaga08@gmail.com" class="region">Mondstadt (Email)</a>
+        <a href="tel:09284118086" class="region">Liyue (Phone)</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    
+    window.onload = () => {
+      document.getElementById('curtain').classList.add('open');
+      const savedMode = localStorage.getItem('mode');
+      document.querySelector('.intro').style.backgroundImage = "url('https://assets-prd.ignimgs.com/2021/01/22/50859450722-9e47e52378-o-1611343121784.jpg')";
+      if (savedMode === 'dark') {
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+      } else {
+        document.body.classList.add('light');
+      }
+    };
+  
+    function toggleMode() {
+      const body = document.body;
+      const intro = document.querySelector('.intro');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+      
+      if (body.classList.contains('dark')) {
+        intro.style.backgroundImage = "url('https://assets-prd.ignimgs.com/2021/01/22/50859450722-9e47e52378-o-1611343121784.jpg')";
+        localStorage.setItem('mode', 'dark');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        intro.style.backgroundImage = "url('https://static.wikia.nocookie.net/gensin-impact/images/0/03/Liyue.png/revision/latest?cb=20230905083920')";
+        localStorage.setItem('mode', 'light');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+
+      updateCarousel();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const projectCards = document.querySelectorAll('.carousel-item');
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      projectCards.forEach(card => {
+        observer.observe(card);
+      });
+    });
+
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+
+    function moveSlide(step) {
+      currentIndex += step;
+      if (currentIndex < 0) {
+        currentIndex = totalItems - 1;
+      } else if (currentIndex >= totalItems) {
+        currentIndex = 0;
+      }
+      updateCarousel();
+    }
+
+    function updateCarousel() {
+      const offset = -currentIndex * 100;
+      document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+      items.forEach((item, index) => {
+        item.style.opacity = (index === currentIndex) ? 1 : 0;
+      });
+    }
+  </script>
+</body>
+>>>>>>> e42172b (test git)
 </html>
